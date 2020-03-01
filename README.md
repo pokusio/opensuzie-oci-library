@@ -30,16 +30,26 @@ This repo contains all defintions of :
   * so this tag points at an inambiguous commit hash from https://github.com/openSUSE/docker-containers
 
 
-## Releases Bill Of Material
 
 
-### Release `0.0.1` :
+## Versioning rules
+
+* The release numbers on this repo are _SEMVER_-compliant
+* Additionnaly to its relase version number, each release of this repo will be tagged with at least one tag of the form `portus-${PORTUS_RELEASE_VER}`, where `${PORTUS_RELEASE_VER}` is an existing Portus Release Tag. These tags will help you filter among this repo's releases, and find docker images for the version of Portus you are working with.
+
+## Releases
+
+### Release `0.0.1` : Bill Of Material
+
+_Purpose of this Release : sharing a finally successfully built `portus:2.5` container_
 
 Here are the released (fixed) openSUSE `Portus` OCI container images  :
 
 | Image name              | Component of     | Notes             |
 |------------------------ |----------------- |------------------ |
 | `opensuzie/portus:2.5`  | `portus`         | `OpenSUSE` Team publishes that with generic mame `opensuse/portus:2.5` |
+
+This release is therefore tagged `portus-2.5`
 
 Tag marking the exact version from which the `0.0.1` relase of `opensuzie/portus:2.5` : https://gitlab.com/pokus-io/opensuse/docker-containers/-/tags/DEVOPS_PORTUS_2.5_REPAIRMAN
 
@@ -51,6 +61,7 @@ Tag marking the exact version from which the `0.0.1` relase of `opensuzie/portus
 This image is used torun both the main `portus` server, and its `background` companion.
 
 To build a release of that container, execute the following :
+
 
 ```bash
 export SUZIE_OCI_LIBRARY_RELEASE=0.0.1
