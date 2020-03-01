@@ -1,4 +1,4 @@
-# How to contribute
+# How to contribute (not fully tested yet, planned for release `0.0.3`)
 
 You must use the `git-flow`, `AVH Edition`, to contribute :
 * Any pull request not following the git-flow will be discarded
