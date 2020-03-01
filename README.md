@@ -1,4 +1,4 @@
-# Portus OCI container images library
+# Pokus! [Portus](#) OCI container images library
 
 ## Why
 
@@ -8,31 +8,51 @@ very soon, ended up fixing multiple issues with other community users like :
 * https://github.com/Ashtonian
 * https://github.com/diranged
 * https://github.com/robgiovanardi
+* https://github.com/shqear93
+* https://github.com/ogra
 * The nice https://github.com/Kulturserver Tech Team, and Alex Klotz
 
 You may read examples of those issues here : https://github.com/SUSE/Portus/issues?utf8=%E2%9C%93&q=is%3Aissue+lasselle
 
-All in all I finally decided to re-design
+All in all, we had many problems, most of them becoming hellfests because of lack of industrialization, or communication on it.
+
+So I finally decided to re-design the whole devops factory for portus.
+
+This repo is one of the many repo required to run that Devops factory.
 
 ## What is this
 
 This repo contains all defintions of :
 * the OCI container images to run [`Portus`](https://github.com/SUSE/portus)
-* all of the images you will find in this repo are modifications of OCI image defintions from https://github.com/openSUSE/docker-containers
-* https://github.com/openSUSE/docker-containers is mirrored by a repo I own, https://gitlab.com/pokus-io/opensuse/docker-containers
-* the difference is that for every release of this repo :
-  * for every OCI image defintion, the release notes give an exiting tag, on the https://gitlab.com/pokus-io/opensuse/docker-containers repository
+* All of the images you will find in this repo are modifications or fix of OCI image defintions from https://github.com/openSUSE/docker-containers
+* For every release of this repo :
+  * for every OCI image defintion, the release notes give an existing tag, on the https://gitlab.com/pokus-io/opensuse/docker-containers repository
   * so this tag points at an inambiguous commit hash from https://github.com/openSUSE/docker-containers
-  *
-
-## Releases Bill Of Material
 
 
-### Release `0.0.1` :
+
+
+## Versioning rules
+
+* The release numbers on this repo are _SEMVER_-compliant
+* Additionnaly to its relase version number, each release of this repo will be tagged with at least one tag of the form `portus-${PORTUS_RELEASE_VER}`, where `${PORTUS_RELEASE_VER}` is an existing Portus Release Tag. These tags will help you filter among this repo's releases, and find docker images for the version of Portus you are working with.
+
+## Releases
+
+### Release `0.0.1` : Bill Of Material
+
+_Purpose of this Release : sharing a finally successfully built `portus:2.5` container_
+
+Here are the released (fixed) openSUSE `Portus` OCI container images  :
 
 | Image name              | Component of     | Notes             |
 |------------------------ |----------------- |------------------ |
 | `opensuzie/portus:2.5`  | `portus`         | `OpenSUSE` Team publishes that with generic mame `opensuse/portus:2.5` |
+
+This release is therefore tagged `portus-2.5`
+
+Tag marking the exact version from which the `0.0.1` relase of `opensuzie/portus:2.5` : https://gitlab.com/pokus-io/opensuse/docker-containers/-/tags/DEVOPS_PORTUS_2.5_REPAIRMAN
+
 
 ## How to use
 
@@ -42,30 +62,21 @@ This image is used torun both the main `portus` server, and its `background` com
 
 To build a release of that container, execute the following :
 
-```bash
 
+```bash
+export SUZIE_OCI_LIBRARY_RELEASE=0.0.1
 export SUZIE_OCI_LIBRARY_GIT_URI=git@github.com:pokusio/opensuzie-oci-library.git
+export SUZIE_OCI_LIBRARY_GIT_URI="https://github.com/pokusio/opensuzie-oci-library.git"
 export WORK_FOLDER=$(mktemp -d /tmp/suzie.oci.library.XXXXXXXX)
 # define image tag
 export PORTUS_RELEASE_TAG=${PORTUS_RELEASE_TAG:-'opensuzie/portus:2.5'}
-git clone
+git clone $SUZIE_OCI_LIBRARY_GIT_URI $WORK_FOLDER
+cd $WORK_FOLDER
+git checkout $SUZIE_OCI_LIBRARY_RELEASE
 
-#!/bin/sh
-
-export PORTUS_RELEASE_TAG=${PORTUS_RELEASE_TAG:-'opensuzie/portus:2.5'}
-
-export DOCKER_BUILD_CONTEXT=docker-containers/derived_images/portus
-
-set +x
-
-git clone git@gitlab.com:second-bureau/pegasus/docker/docker-containers.git
+docker build library/portus -t $PORTUS_RELEASE_TAG
 
 
-sed -i "s#15.0#15.1#g" Dockerfile
+```
 
-echo "--------------------------------"
-echo "reset lines in Dockerfile : "
-echo "--------------------------------"
-cat Dockerfile |grep '15.1'
-echo "--------------------------------"
-docker build $DOCKER_BUILD_CONTEXT -t opensuzie/portus:2.5
+### Building a `registry` image (soon)
