@@ -1,4 +1,4 @@
-# Collaboration Management on this repo
+# Collaboration Management on this repo (not fully tested yet, planned for release `0.0.3`)
 
 
 ## Initializing the repo
