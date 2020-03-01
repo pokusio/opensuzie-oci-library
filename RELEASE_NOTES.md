@@ -19,6 +19,7 @@ To build a release of that container, execute the following :
 
 ```bash
 
+export SUZIE_OCI_LIBRARY_RELEASE=0.0.1
 export SUZIE_OCI_LIBRARY_GIT_URI=git@github.com:pokusio/opensuzie-oci-library.git
 export SUZIE_OCI_LIBRARY_GIT_URI="https://github.com/pokusio/opensuzie-oci-library.git"
 export WORK_FOLDER=$(mktemp -d /tmp/suzie.oci.library.XXXXXXXX)
@@ -26,8 +27,7 @@ export WORK_FOLDER=$(mktemp -d /tmp/suzie.oci.library.XXXXXXXX)
 export PORTUS_RELEASE_TAG=${PORTUS_RELEASE_TAG:-'opensuzie/portus:2.5'}
 git clone $SUZIE_OCI_LIBRARY_GIT_URI $WORK_FOLDER
 cd $WORK_FOLDER
+git checkout $SUZIE_OCI_LIBRARY_RELEASE
 
 docker build library/portus -t $PORTUS_RELEASE_TAG
-
-
 ```

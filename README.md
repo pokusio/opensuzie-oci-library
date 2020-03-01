@@ -67,3 +67,5 @@ docker build library/portus -t $PORTUS_RELEASE_TAG
 
 
 ```
+
+### Building a `registry` image (soon)
