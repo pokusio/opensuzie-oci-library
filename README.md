@@ -18,23 +18,24 @@ All in all, we had many problems, most of them becoming hellfests because of lac
 
 So I finally decided to re-design the whole devops factory for portus.
 
+This repo is one of the many repo required to run that Devops factory.
+
 ## What is this
 
 This repo contains all defintions of :
 * the OCI container images to run [`Portus`](https://github.com/SUSE/portus)
-* all of the images you will find in this repo are modifications of OCI image defintions from https://github.com/openSUSE/docker-containers
-* https://github.com/openSUSE/docker-containers is mirrored by a repo I own, https://gitlab.com/pokus-io/opensuse/docker-containers
-* the difference is that for every release of this repo :
-  * for every OCI image defintion, the release notes give an exiting tag, on the https://gitlab.com/pokus-io/opensuse/docker-containers repository
+* All of the images you will find in this repo are modifications or fix of OCI image defintions from https://github.com/openSUSE/docker-containers
+* For every release of this repo :
+  * for every OCI image defintion, the release notes give an existing tag, on the https://gitlab.com/pokus-io/opensuse/docker-containers repository
   * so this tag points at an inambiguous commit hash from https://github.com/openSUSE/docker-containers
-  *
+
 
 ## Releases Bill Of Material
 
 
 ### Release `0.0.1` :
 
-Here are the released (fixed) openSUSE containers :
+Here are the released (fixed) openSUSE `Portus` OCI container images  :
 
 | Image name              | Component of     | Notes             |
 |------------------------ |----------------- |------------------ |
