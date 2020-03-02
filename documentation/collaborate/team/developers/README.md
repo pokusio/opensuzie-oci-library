@@ -133,6 +133,14 @@ In the screenshots above, you see the url of two git repos that actually exist :
 * https://github.com/octocat/Spoon-Knife : a repo made available by gihub to demonstrate git workflow management github features, like pull requests. Anyone can play with it,to test sending pull requests, for example.
 
 
+### How do I cancel a feature work I already `git flow feature start`-ed
+
+```bash
+git flow feature delete your-feature-branch
+```
+
+
+
 # With IDE
 
 I like `Atom` IDE, created years ago by Github's Team.
