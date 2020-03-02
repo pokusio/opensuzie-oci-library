@@ -2,8 +2,8 @@
 
 ## Why
 
-I have startedworking with [`Portus`](https://github.com/SUSE/portus) in November `2019`, and
-very soon, ended up fixing multiple issues with other community users like :
+I have started working with [`Portus`](https://github.com/SUSE/portus) in November `2019`, and
+very soon, ended up fixing multiple issues with helps and support from other community users like :
 
 * https://github.com/Ashtonian
 * https://github.com/diranged
@@ -11,6 +11,7 @@ very soon, ended up fixing multiple issues with other community users like :
 * https://github.com/shqear93
 * https://github.com/ogra
 * The nice https://github.com/Kulturserver Tech Team, and Alex Klotz
+* https://github.com/SuperSandro2000
 
 You may read examples of those issues here : https://github.com/SUSE/Portus/issues?utf8=%E2%9C%93&q=is%3Aissue+lasselle
 
