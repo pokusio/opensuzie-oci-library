@@ -137,6 +137,9 @@ In the screenshots above, you see the url of two git repos that actually exist :
 
 ```bash
 git flow feature delete your-feature-branch
+# and if you already pushed the feature branch to remote, doyou need to ....
+
+# git push origin --delete $THAT_BRANCH_NAME
 ```
 
 
