@@ -1,4 +1,4 @@
-# Pokus! [Portus](#) : OCI container images library
+# Pokus! [Portus](#) : The OCI container images library
 
 ## Why
 
